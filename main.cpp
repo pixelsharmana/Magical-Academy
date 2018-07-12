@@ -40,7 +40,6 @@ int main(){
   curs_set(0);
   refresh();
   unit player={'@',1,5,5};
-
   winViewer=createNewWin(LINES,COLS/3+COLS/3,0,COLS/3);
   winMenu=createNewWin(LINES,COLS/3,0,0);
   mvwaddch(winViewer, player.y, player.x, ' ');
@@ -49,10 +48,10 @@ int main(){
 
   for(unsigned int x=1;x<COLS/3+COLS/3-1;x++){
     for(unsigned int y=1;y<LINES-1;y++){
-      
+
     }
   }
-  
+
   while(getch() != KEY_F(1)){
     if(getch()==KEY_LEFT){
       mvwaddch(winViewer, player.y, player.x, ' ');
