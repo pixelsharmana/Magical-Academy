@@ -27,6 +27,32 @@ char interpretTile(const tile &input){
   }
 }
 
+//0=black,1=red,2=green,3=yellow,4=blue,5=magenta,6=cyan,7=white
+void wPrintText(const WINDOW &window,const std::string &input , unsigned short color=7) {
+  if (!has_colors()) {wprintw(window,input); return;}
+  switch (color) {
+  case 0:
+	init_pair(0,COLOR_BLACK,COLOR_BLACK);
+  case 1:
+	init_pair(0,COLOR_RED,COLOR_BLACK);
+  case 2:
+	init_pair(0,COLOR_GREEN,COLOR_BLACK);
+  case 3:
+	init_pair(0,COLOR_YELLOW,COLOR_BLACK);
+  case 4:
+	init_pair(0,COLOR_BLUE,COLOR_BLACK);
+  case 5:
+	init_pair(0,COLOR_MAGENTA,COLOR_BLACK);
+  case 6:
+	init_pair(0,COLOR_CYAN,COLOR_BLACK);
+  default:
+	init_pair(0,COLOR_WHITE,COLOR_BLACK);
+  }
+  attron(COLOR_PAIR(0));
+  wprintw(window,input);
+  attroff(COLOR_PAIR(0));
+}
+
 
 
 int main(){
